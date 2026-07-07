@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect , url_for
 import psycopg2  # อย่าลืม import ไลบรารีนี้ครับ
 from app.connectdb import dbconn
 
-from app.createtable import createtable
+from app.createtable11 import createtable
 
 
 from datetime import datetime
