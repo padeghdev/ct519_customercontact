@@ -5,7 +5,7 @@ import psycopg2
 def createtable_contact():
  
     conn  = None
-    cur  = None
+    cursor  = None
     try:
         conn = psycopg2.connect(
                 dbname="mydatabase",
@@ -16,35 +16,32 @@ def createtable_contact():
             )
             
  
-        cur = conn.cursor()
+        cursor = conn.cursor()
 
  
         create_table_query = """
         CREATE TABLE IF NOT EXISTS contact (
-            conid serial primary key NOT NULL,
+            conid serial primary key NOT NULL ,
             contactdetail text ,
             cid bigint ,
-            status character ,
-            submitdate text,
+            status text ,
+            submitdate text ,
             submittime text
         );
         """
 
-
- 
-        cur.execute(create_table_query)
-
-    
+        cursor.execute(create_table_query)
+   
         conn.commit()
-        print("สร้างตารางเรียบร้อยแล้ว")
+ 
 
     except Exception as e:
         print(f"เกิดข้อผิดพลาด: {e}")
 
     finally:
  
-        if cur:
-            cur.close()
+        if cursor:
+            cursor.close()
         if conn:
             conn.close()
     

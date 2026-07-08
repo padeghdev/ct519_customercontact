@@ -36,7 +36,7 @@ def createtable_customer():
 
  
         conn.commit()
-        print("สร้างตารางเรียบร้อยแล้ว")
+ 
 
     except Exception as e:
         print(f"เกิดข้อผิดพลาด: {e}")

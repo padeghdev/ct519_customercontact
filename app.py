@@ -4,8 +4,8 @@ from app.connectdb import dbconn
 
 from app.createtable_contact import createtable_contact
 from app.createtable_customer import createtable_customer
-#from app.insertdata_customer import insertdata_customer
-#from app.insertdata_contact import insertdata_contact
+from app.insertdata_customer import insertdata_customer
+from app.insertdata_contact import insertdata_contact
 
 
 from datetime import datetime
@@ -40,7 +40,7 @@ def createdataschema():
 
     ####
     try:
-        #insertdata_customer()
+        insertdata_customer()
         word.append ( "Insert Data Customer Success" )   
     
     except:
@@ -49,17 +49,17 @@ def createdataschema():
 
     ####
     try:
-        #insertdata_contact()
+        insertdata_contact()
         word.append ( "Insert Data Contact Success" ) 
     except:
-        word.append ( "Table customer Failed")
+        word.append ( "Insert Contact  Failed")
 
     return render_template("back.html"  , show=word )
 
 
 
 
-@app.route("/")
+@app.route("/xxxxxxxxxxxxxxxxx")
 def custom():
         return "Hello"
 
@@ -104,7 +104,7 @@ def custom():
 
 
 
-@app.route("/xxxxxxxxxxx")
+@app.route("/")
 def selectdata():
     customers = []
     try:
@@ -157,7 +157,7 @@ def insertcustomer():
  
     return redirect('/')
 
-
+# ************************************************************
 
 
 
@@ -185,6 +185,9 @@ def listcompany():
  
 # ************************************************************
 
+
+
+# ************************************************************
 @app.route("/customers/edit/<int:cid>")
 def editcompany( cid ):
 
@@ -205,6 +208,9 @@ def editcompany( cid ):
         print( "Query Operation Error")
 
     return render_template("editcustomer.html"  , rows=customers)
+
+# ************************************************************
+
 
 
 # ************************************************************
@@ -239,6 +245,7 @@ def updatecompany( cid ):
  
 
 
+# ************************************************************
 @app.route("/customers/delete/<int:cid>")
 def deletecompany( cid ):
 
@@ -259,6 +266,10 @@ def deletecompany( cid ):
         print( "Query Operation Error")
 
     return render_template("deletecustomer.html"  , rows=customers)
+
+
+
+# ************************************************************
 
 
 
@@ -288,6 +299,9 @@ def deletecuctomerconfirm( cid ):
 # ************************************************************
 
 
+
+# ************************************************************
+
 @app.route('/contactnotes')
 def addnewcontactform():    
     customers = []
@@ -309,6 +323,9 @@ def addnewcontactform():
 
 # ************************************************************
 
+
+
+# ************************************************************
 
 @app.route('/contactnotes/addnewcontact'  , methods=['GET', 'POST']  )
 def addnewcontact():    
@@ -339,6 +356,8 @@ def addnewcontact():
  
     return redirect('/')
 
+# ************************************************************
+
 
 
 # ************************************************************
@@ -367,6 +386,9 @@ def searchcontact():
     
 
     return render_template("searchcontact.html" , rows=customers  )
+
+# ************************************************************
+
 
 
 
@@ -412,7 +434,7 @@ def listcontactnotes( cid ):
     return render_template("showcontactnotes.html" ,   notes=noteslist ,  rows = customers )
 
 
-
+# ************************************************************
 
 
 
