@@ -59,7 +59,7 @@ def createdataschema():
 
 
 
-@app.route("/xxxxxxxxxxxxxxxxx")
+@app.route("/xxxx")
 def custom():
         return "Hello"
 
