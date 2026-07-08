@@ -2,7 +2,7 @@ import psycopg2
 
 # ***********************************************************
 
-def insertdata_customer():
+def insertdata_contact():
     
     print ("Hello")
     cname =   "AAA

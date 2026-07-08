@@ -15,10 +15,10 @@ def createtable_customer():
                 port="5432"
             )
             
-            # 2. สร้าง cursor
+ 
         cur = conn.cursor()
 
-        # 3. กำหนดคำสั่ง SQL
+ 
         create_table_query = """
         CREATE TABLE IF NOT EXISTS customer (
             cid serial primary key not null ,
@@ -31,10 +31,10 @@ def createtable_customer():
         """
 
 
-        # 4. ทำการ execute คำสั่ง
+ 
         cur.execute(create_table_query)
 
-        # 5. Commit เพื่อบันทึกการเปลี่ยนแปลง
+ 
         conn.commit()
         print("สร้างตารางเรียบร้อยแล้ว")
 
@@ -42,7 +42,7 @@ def createtable_customer():
         print(f"เกิดข้อผิดพลาด: {e}")
 
     finally:
-        # 6. ปิดการเชื่อมต่อ
+ 
         if cur:
             cur.close()
         if conn:

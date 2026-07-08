@@ -1,9 +1,12 @@
 from flask import Flask, render_template, request, redirect , url_for
-import psycopg2  # อย่าลืม import ไลบรารีนี้ครับ
+import psycopg2  
 from app.connectdb import dbconn
 
 from app.createtable_contact import createtable_contact
 from app.createtable_customer import createtable_customer
+#from app.insertdata_customer import insertdata_customer
+#from app.insertdata_contact import insertdata_contact
+
 
 from datetime import datetime
 
@@ -20,13 +23,15 @@ def createdataschema():
 
     word = []
     word.append('Start')
+
+    ####
     try:
         createtable_customer()
         word.append ("Create Table Customer Success"  )  
     except:
         word.append ( "Table Customer  Failed")
-    ###
 
+    ####
     try:
         createtable_contact()
         word.append  ("Create Table Contact Success")
@@ -60,30 +65,7 @@ def custom():
 
 
 
-# ************************************************************
-@app.route("/insert"   )
-def insertcus():
-     
-     
-    print ("Hello")
-    cname =   "BBB"
-    address = "456  sukhumwit rd. 10110"
 
- 
-    conn = dbconn()
-    cursor = conn.cursor()
-    
-    sql_query = "INSERT INTO custom  ( cname , address ) VALUES (%s , %s  ) ; "
-
- 
-    cursor.execute(sql_query, (cname , address))
-    
-    conn.commit()   
-    cursor.close()  
-    conn.close()   
-        
- 
-    return "Table Created 11 Successfully"
 
 
 
